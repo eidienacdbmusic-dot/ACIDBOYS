@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACDB GLOBAL</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#050505;color:#fff}
+nav{position:fixed;top:0;width:100%;background:#000;padding:15px;text-align:center}
+nav a{color:#00bfff;margin:0 10px;text-decoration:none}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(#000,#071a2f)}
+.logo{font-size:64px;font-weight:bold;color:#00bfff}
+section{padding:80px 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:#111;padding:20px;border-radius:12px;border:1px solid #00bfff}
+.btn{background:#00bfff;color:#000;padding:12px 20px;border-radius:8px;text-decoration:none}
+input,textarea{width:100%;padding:10px;margin:6px 0;background:#111;color:#fff;border:1px solid #333}
+button{padding:10px 20px}
+</style>
+</head>
+<body>
+<nav>
+<a href="#historia">Historia</a>
+<a href="#records">Records</a>
+<a href="#artistas">Artistas</a>
+<a href="#comunidad">Comunidad</a>
+</nav>
+
+<div class="hero">
+<div class="logo">ACDB</div>
+<h1>ACDB GLOBAL</h1>
+<p>Records • Music • Community</p>
+</div>
+
+<section id="historia">
+<h2>Historia del Fundador</h2>
+<p>Fundado por Eiden ACDB, ADN ACDB RECORDS nace como un movimiento para impulsar artistas independientes.</p>
+</section>
+
+<section id="records">
+<h2>ACDB WORLD RECORDS</h2>
+<div class="cards">
+<div class="card">Récords Musicales</div>
+<div class="card">Récords de Freestyle</div>
+<div class="card">Récords de Composición</div>
+<div class="card">Récords de Reproducciones</div>
+</div>
+</section>
+
+<section id="artistas">
+<h2>Artistas ACDB</h2>
+<div class="cards">
+<div class="card">Próximamente</div>
+<div class="card">Próximamente</div>
+<div class="card">Próximamente</div>
+</div>
+</section>
+
+<section id="comunidad">
+<h2>Comunidad ACDB</h2>
+<button onclick="reaccion()">👍 Me gusta</button>
+<h3 id="likes">0</h3>
+
+<input id="nombre" placeholder="Tu nombre">
+<textarea id="comentario" placeholder="Comentario"></textarea>
+<button onclick="agregarComentario()">Publicar</button>
+<div id="comentarios"></div>
+</section>
+
+<script>
+let likes=0;
+function reaccion(){likes++;document.getElementById('likes').innerText=likes;}
+function agregarComentario(){
+let n=document.getElementById('nombre').value;
+let c=document.getElementById('comentario').value;
+if(!n||!c)return;
+document.getElementById('comentarios').innerHTML+=`<div class="card"><b>${n}</b><p>${c}</p></div>`;
+}
+</script>
+</body>
+</html>
